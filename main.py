@@ -1,4 +1,5 @@
-import Tkinter
+from tkinter import *
+import requests
 
 
 app = Tk()
