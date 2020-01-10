@@ -14,27 +14,37 @@ import datetime
 
 
 
-
 app = Tk()
 app.title('Welcome')
-# mainframe = ttk.Frame(app, padding="100 100 100 100")
-# mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
-# app.columnconfigure(0, weight=1)
-# app.rowconfigure(0, weight=1)
-# app.geometry('700x350')
+
+app.geometry('1600x900')
+
+
 app.iconbitmap('rocket.ico')
 clock_font = font.Font(family='Helvetica', size=20, weight='bold')
+
+def reddit_all():
+    headers = {'Authorization': 'itK-P8RvowdxI1KHUjUYF-fpAq0', "User-Agent": "Desktop Start Page by bbellini"}
+    r = requests.get('https://www.reddit.com/r/all/.json', headers=headers)
+    rall = r.json()
+
+    rall_headline_1_title = rall['data']['children'][0]['data']['title']
+    rall_headline_1_sub = rall['data']['children'][0]['data']['subreddit']
+
+    rall_headline_1 = rall_headline_1_title + ' via r/' + rall_headline_1_sub
+    rall_headline_1_label = Label(app, text = rall_headline_1).grid(row=2, column=0)
 
 def clock():
     time = datetime.datetime.now().strftime("%I:%M:%S %p")
     date = datetime.datetime.now().strftime('%A %d %B %Y')
     app.after(1000, clock)
 
-    date_label = Label(app,text=date, font=clock_font).grid(row=1, column=1)
-    clock_label = Label(app, text=time, font=clock_font).grid(row=0, column=1)
+    date_label = Label(app,text=date, font=clock_font).grid(row=1, column=0)
+    clock_label = Label(app, text=time, font=clock_font).grid(row=0, column=0)
 
-
-clock()
+if __name__ == "__main__":
+    clock()
+    # reddit_all()
 app.mainloop()
 
     
