@@ -31,6 +31,7 @@ app.iconbitmap('rocket.ico')
 clock_font = font.Font(family='Helvetica', size=20, weight='bold')
 
 def reddit_all():
+    thirty_min = 1800000
     headers = {'Authorization': 'itK-P8RvowdxI1KHUjUYF-fpAq0', "User-Agent": "Desktop Start Page by bbellini"}
     r = requests.get('https://www.reddit.com/r/all/.json', headers=headers)
     rall = r.json()
@@ -39,7 +40,9 @@ def reddit_all():
     rall_headline_1_sub = rall['data']['children'][0]['data']['subreddit']
 
     rall_headline_1 = rall_headline_1_title + ' via r/' + rall_headline_1_sub
-    rall_headline_1_label = Label(app, text = rall_headline_1).grid(row=2, column=0)
+    rall_headline_1_label = Label(app, text = rall_headline_1).grid(row=0, column=1)
+
+    app.after(thirty_min, reddit_all)
 
 def clock():
     time = datetime.datetime.now().strftime("%I:%M:%S %p")
@@ -51,7 +54,7 @@ def clock():
 
 if __name__ == "__main__":
     clock()
-    # reddit_all()
+    reddit_all()
 app.mainloop()
 
     
