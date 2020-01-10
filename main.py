@@ -5,7 +5,12 @@ import requests
 import json
 import time
 import datetime
+import sys
+import os
 
+if os.environ.get('DISPLAY','') == '':
+    print('no display found. Using :0.0')
+    os.environ.__setitem__('DISPLAY', ':0.0')
 #things to add:
 # Weather
 # Air Quality
@@ -16,6 +21,8 @@ import datetime
 
 app = Tk()
 app.title('Welcome')
+
+app.attributes('-fullscreen', True)
 
 app.geometry('1600x900')
 
