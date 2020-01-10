@@ -22,7 +22,7 @@ if os.environ.get('DISPLAY','') == '':
 app = Tk()
 app.title('Welcome')
 
-app.attributes('-fullscreen', True)
+# app.attributes('-fullscreen', True)
 
 app.geometry('1600x900')
 
