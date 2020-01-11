@@ -16,7 +16,6 @@ if os.environ.get('DISPLAY','') == '':
 # Weather
 # Air Quality
 # News Headlines
-# 
 
 
 
@@ -36,17 +35,18 @@ headline_font_title = font.Font(family='Helvetia', size=14, weight='bold', under
 
 img_1 = ImageTk.PhotoImage(Image.open("comfy.png"))
 img_label = Label(image=img_1, borderwidth=0)
-img_label.place(x=200, y=125)
-
-# .place(x=250, y=126)
+img_label.place(x=150, y=125)
 
 
 def headlines():
     thirty_min = 1800000
     f = feedparser.parse('https://api.axios.com/feed/top/')
-    headline_title_label = Label(app, text=f'Top Headlines', anchor='w', justify='left', wraplength=400, font=headline_font_title, background='#1c2431', fg='white').place(x=700, y=145)
-    headline_1_label = Label(app, text=f'• {f.entries[0].title}', anchor='w', justify='left', wraplength=400, font=headline_font, background='#1c2431', fg='white').place(x=700, y=180)
-    headline_2_label = Label(app, text=f'• {f.entries[1].title}', anchor='w', justify='left', wraplength=400, font=headline_font, background='#1c2431', fg='white').place(x=700, y=250)
+    headline_title_label = Label(app, text=f'Top Headlines', anchor='w', justify='left', wraplength=400, font=headline_font_title, background='#1c2431', fg='white').place(x=650, y=145)
+    headline_1_label = Label(app, text=f'• {f.entries[0].title}', anchor='w', justify='left', wraplength=400, font=headline_font, background='#1c2431', fg='white').place(x=650, y=180)
+    headline_2_label = Label(app, text=f'• {f.entries[1].title}', anchor='w', justify='left', wraplength=400, font=headline_font, background='#1c2431', fg='white').place(x=650, y=240)
+    headline_3_label = Label(app, text=f'• {f.entries[2].title}', anchor='w', justify='left', wraplength=400, font=headline_font, background='#1c2431', fg='white').place(x=650, y=300)
+    headline_4_label = Label(app, text=f'• {f.entries[3].title}', anchor='w', justify='left', wraplength=400, font=headline_font, background='#1c2431', fg='white').place(x=650, y=360)
+    headline_5_label = Label(app, text=f'• {f.entries[4].title}', anchor='w', justify='left', wraplength=400, font=headline_font, background='#1c2431', fg='white').place(x=650, y=420)
     app.after(thirty_min, headlines)
 
 
@@ -69,9 +69,9 @@ def clock():
     date = datetime.datetime.now().strftime('%A %d %B %Y')
     app.after(1000, clock)
 
-    date_label = Label(app,text=date, font=clock_font).place(x=1100, y=200)
+    date_label = Label(app,text=date, anchor='w', justify='left', font=clock_font, background='#1c2431', fg='white').place(x=1075, y=185)
 
-    clock_label = Label(app, text=time, font=clock_font).place(x=1100, y=300)
+    clock_label = Label(app, text=time, anchor='w', justify='left', font=clock_font, background='#1c2431', fg='white').place(x=1075, y=145)
 
 if __name__ == "__main__":
     clock()
