@@ -50,6 +50,13 @@ def headlines():
     app.after(thirty_min, headlines)
 
 
+def weather():
+    five_min = 300000
+    headers = {"User-Agent": "Desktop Start Page"}
+    r = requests.get('', headers=headers)
+    rall = r.json()
+
+
 # def reddit_all():
 #     thirty_min = 1800000
 #     headers = {'Authorization': 'itK-P8RvowdxI1KHUjUYF-fpAq0', "User-Agent": "Desktop Start Page by bbellini"}
