@@ -28,7 +28,7 @@ app.geometry('1600x900')
 app.configure(background='#1c2431')
 
 
-app.iconbitmap('rocket.ico')
+
 clock_font = font.Font(family='Helvetica', size=20, weight='bold')
 headline_font = font.Font(family='Helvetia', size=12, weight='bold')
 headline_font_title = font.Font(family='Helvetia', size=14, weight='bold', underline=True)
