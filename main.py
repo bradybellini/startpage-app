@@ -59,7 +59,7 @@ def weather():
 
 # def reddit_all():
 #     thirty_min = 1800000
-#     headers = {'Authorization': 'itK-P8RvowdxI1KHUjUYF-fpAq0', "User-Agent": "Desktop Start Page by bbellini"}
+#     headers = {'Authorization': '', "User-Agent": "Desktop Start Page by bbellini"}
 #     r = requests.get('https://www.reddit.com/r/all/.json', headers=headers)
 #     rall = r.json()
 
