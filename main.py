@@ -25,24 +25,30 @@ app.title('Welcome')
 # app.attributes('-fullscreen', True)
 
 app.geometry('1600x900')
+app.configure(background='black')
 
 
 app.iconbitmap('rocket.ico')
 clock_font = font.Font(family='Helvetica', size=20, weight='bold')
+headline_font = font.Font(family='Helvetia', size=12, weight='bold')
 
-def reddit_all():
-    thirty_min = 1800000
-    headers = {'Authorization': 'itK-P8RvowdxI1KHUjUYF-fpAq0', "User-Agent": "Desktop Start Page by bbellini"}
-    r = requests.get('https://www.reddit.com/r/all/.json', headers=headers)
-    rall = r.json()
 
-    rall_headline_1_title = rall['data']['children'][0]['data']['title']
-    rall_headline_1_sub = rall['data']['children'][0]['data']['subreddit']
+img_1 = ImageTk.PhotoImage(Image.open(""))
 
-    rall_headline_1 = rall_headline_1_title + ' via r/' + rall_headline_1_sub
-    rall_headline_1_label = Label(app, text = rall_headline_1).grid(row=0, column=1)
 
-    app.after(thirty_min, reddit_all)
+# def reddit_all():
+#     thirty_min = 1800000
+#     headers = {'Authorization': 'itK-P8RvowdxI1KHUjUYF-fpAq0', "User-Agent": "Desktop Start Page by bbellini"}
+#     r = requests.get('https://www.reddit.com/r/all/.json', headers=headers)
+#     rall = r.json()
+
+#     rall_headline_1_title = rall['data']['children'][0]['data']['title']
+#     rall_headline_1_sub = rall['data']['children'][0]['data']['subreddit']
+
+#     rall_headline_1 = rall_headline_1_title + ' via r/' + rall_headline_1_sub
+#     rall_headline_1_label = Label(app, text = rall_headline_1, wraplength=500, font=headline_font, background = 'black', fg = 'white').grid(row=0, column=1)
+#     outline_label = LabelFrame(rall_headline_1_label, text='Reddit All')
+#     app.after(thirty_min, reddit_all)
 
 def clock():
     time = datetime.datetime.now().strftime("%I:%M:%S %p")
